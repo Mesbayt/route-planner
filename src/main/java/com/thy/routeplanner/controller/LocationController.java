@@ -19,13 +19,11 @@ public class LocationController {
         this.locationRepository = locationRepository;
     }
 
-    // Get all locations
     @GetMapping
     public List<Location> getAllLocations() {
         return locationRepository.findAll();
     }
 
-    // Get location by ID
     @GetMapping("/{id}")
     public ResponseEntity<Location> getLocationById(@PathVariable Long id) {
         Optional<Location> location = locationRepository.findById(id);
@@ -33,7 +31,6 @@ public class LocationController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Create new location
     @PostMapping
     public ResponseEntity<Location> createLocation(@RequestBody Location location) {
         if (locationRepository.existsByLocationCode(location.getLocationCode())) {
@@ -43,7 +40,6 @@ public class LocationController {
         return ResponseEntity.ok(saved);
     }
 
-    // Update existing location
     @PutMapping("/{id}")
     public ResponseEntity<Location> updateLocation(@PathVariable Long id, @RequestBody Location updatedLocation) {
         Optional<Location> optionalLocation = locationRepository.findById(id);
@@ -61,7 +57,6 @@ public class LocationController {
         return ResponseEntity.ok(saved);
     }
 
-    // Delete location
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLocation(@PathVariable Long id) {
         if (!locationRepository.existsById(id)) {

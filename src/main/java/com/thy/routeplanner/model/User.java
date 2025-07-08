@@ -16,8 +16,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    // Getters & Setters
-
     public String getUsername() {
         return username;
     }

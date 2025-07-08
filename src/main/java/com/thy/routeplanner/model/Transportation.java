@@ -1,9 +1,14 @@
 package com.thy.routeplanner.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "transportations")
 public class Transportation {
 
@@ -26,48 +31,5 @@ public class Transportation {
 
     @Column(name = "day_of_week")
     private String operatingDays;
-
-    // --- Getters & Setters ---
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Location getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(Location origin) {
-        this.origin = origin;
-    }
-
-    public Location getDestination() {
-        return destination;
-    }
-
-    public void setDestination(Location destination) {
-        this.destination = destination;
-    }
-
-    public TransportationType getType() {
-        return type;
-    }
-
-    public void setType(TransportationType type) {
-        this.type = type;
-    }
-
-    public void setOperatingDays(String operatingDays) {
-        this.operatingDays = operatingDays;
-    }
-
-    public String getOperatingDays() {
-        return operatingDays;
-    }
-
 
 }

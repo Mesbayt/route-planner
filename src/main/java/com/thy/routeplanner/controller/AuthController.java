@@ -14,12 +14,10 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        // Geçici sabit kullanıcı kontrolü
         if ("admin".equals(username) && "1234".equals(password)) {
-            // Geriye sahte bir token gönderiyoruz
             return ResponseEntity.ok(Map.of("token", "dummy-token"));
         } else {
-            return ResponseEntity.status(401).body("Kullanıcı adı veya şifre hatalı");
+            return ResponseEntity.status(401).body("Incorrect username or password");
         }
     }
 }

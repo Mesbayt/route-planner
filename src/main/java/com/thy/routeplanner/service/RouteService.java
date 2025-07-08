@@ -12,7 +12,6 @@ import com.thy.routeplanner.dto.SegmentDTO;
 
 import org.springframework.cache.annotation.Cacheable;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -108,6 +107,10 @@ public class RouteService {
                 dto.setFromCity(t.getOrigin().getCity());
                 dto.setToCity(t.getDestination().getCity());
                 dto.setOperatingDays(t.getOperatingDays());
+                dto.setFromLat(t.getOrigin().getLatitude());
+                dto.setFromLng(t.getOrigin().getLongitude());
+                dto.setToLat(t.getDestination().getLatitude());
+                dto.setToLng(t.getDestination().getLongitude());
                 segments.add(dto);
             }
             result.add(new RouteDTO(segments));
